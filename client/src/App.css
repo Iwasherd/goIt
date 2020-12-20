@@ -1,5 +1,10 @@
 .App {
   text-align: center;
+  display: flex;
+  justify-content: center;
+  padding: 50px 0;
+  flex-direction: column;
+  align-items: center;
 }
 
 .App-logo {
@@ -32,7 +37,47 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
+}
+
+.file__container {
+  max-width: 1200px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.file__drop {
+  width: 300px;
+  height: 300px;
+  border: 1px solid #000;
+  margin-top: 50px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+
+}
+
+.file__drop-active {
+  border: 1px dashed rgb(40, 192, 53);
+  color: rgb(40, 192, 53);
+}
+
+.file__drop-active * {
+  pointer-events: none;
+}
+
+.preview__container {
+  margin: 20px 0;
+}
+
+.preview__img {
+  width: 300px;
 }
