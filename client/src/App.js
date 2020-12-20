@@ -1,12 +1,12 @@
 import './App.css';
-import Dropzoneview from './components/dropzoneview';
-import Inputtypefile from './components/inputtypefile';
+import DropZoneView from './components/dropzoneview/dropzoneview';
+import InputTypeFile from './components/input/inputtypefile';
 
 function App() {
   return (
     <div className="App">
-      <Inputtypefile/>
-      <Dropzoneview/>
+      <InputTypeFile/>
+      <DropZoneView/>
     </div>
   );
 }
