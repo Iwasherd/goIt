@@ -1,9 +1,14 @@
-import React from 'react';
-import DropZoneView from '../components/Dropzone/DropZoneView';
+import React, { useState } from 'react';
+import DropZoneView from '../components/DropZoneView/DropZoneView';
 // import propTypes from 'prop-types';
 
 const DropZone = () => {
-  return <DropZoneView />;
+  const [active, setActive] = useState(false);
+  const onDragToggle = () => {
+    setActive((state) => !state);
+  };
+
+  return <DropZoneView active={active} onDragToggle={onDragToggle} />;
 };
 
 export default DropZone;
