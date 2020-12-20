@@ -1,8 +1,9 @@
 import React from 'react';
-import propTypes from 'prop-types';
+import DropZoneView from '../components/Dropzone/DropZoneView';
+// import propTypes from 'prop-types';
 
 const DropZone = () => {
-  return <div></div>;
+  return <DropZoneView />;
 };
 
-DropZone.propTypes = {};
+export default DropZone;
