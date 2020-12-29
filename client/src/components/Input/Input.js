@@ -1,15 +1,12 @@
-import { Component } from 'react'
-class Input extends Component { 
-    state = {}
 
-   
-   render() {
-    return (
+function Input({onChange}) { 
+
+   return (
       <>
-          <input type="file"/>
+          <input type="file"  onChange={onChange} />
       </>
     );
   }
-  }
+  
 
-export default Input;
+export default Input
