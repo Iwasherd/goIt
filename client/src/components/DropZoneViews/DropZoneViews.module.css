@@ -7,10 +7,10 @@
   margin-bottom: 20px;
 }
 
-.dragged{
+.dragged {
   border: 1px dotted green;
 }
 
-.hightLight{
+.hightLight {
   background-color: rgb(184, 216, 151);
 }
