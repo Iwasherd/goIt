@@ -3,17 +3,24 @@ import { useState, useEffect } from 'react';
 import s from './DropZoneViews.module.css';
 import useFileReader from '../../hooks/useFileReader';
 
-function DropZoneViews({ setPictureSrc, imageSrc }) {
+function DropZoneViews({ setPictureSrc, setLoadBytes, setTotalBytes }) {
   const [hightLight, setHightLight] = useState(false);
   const [file, setFile] = useState(null);
-
   const dropZoneImageHandler = useFileReader(file);
   useEffect(() => {
     if (!file) {
       return;
     }
-    setPictureSrc(dropZoneImageHandler);
-  }, [dropZoneImageHandler, file, setPictureSrc]);
+    setPictureSrc(dropZoneImageHandler.imageSrc);
+  }, [dropZoneImageHandler.imageSrc, file, setPictureSrc]);
+
+  useEffect(() => {
+    setLoadBytes(dropZoneImageHandler.load);
+  }, [dropZoneImageHandler.load, setLoadBytes, setTotalBytes]);
+
+  useEffect(() => {
+    setTotalBytes(dropZoneImageHandler.total);
+  }, [dropZoneImageHandler.total, setTotalBytes]);
 
   function onDragEnterHandler(e) {
     setHightLight(true);
@@ -47,7 +54,6 @@ function DropZoneViews({ setPictureSrc, imageSrc }) {
       >
         <p>Drop file here</p>
       </div>
-      <img src={imageSrc} width="300" alt="random img" />
     </>
   );
 }

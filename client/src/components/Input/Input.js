@@ -1,15 +1,23 @@
 import { useState, useEffect } from 'react';
 import useFileReader from '../../hooks/useFileReader';
 
-function Input({ setPictureSrc }) {
+function Input({ setPictureSrc, setLoadBytes, setTotalBytes }) {
   const [file, setFile] = useState(null);
   const inputImageHandler = useFileReader(file);
   useEffect(() => {
     if (!file) {
       return;
     }
-    setPictureSrc(inputImageHandler);
-  }, [file, inputImageHandler, setPictureSrc]);
+    setPictureSrc(inputImageHandler.imageSrc);
+  }, [file, inputImageHandler.imageSrc, setPictureSrc]);
+
+  useEffect(() => {
+    setLoadBytes(inputImageHandler.load);
+  }, [inputImageHandler.load, setLoadBytes, setTotalBytes]);
+
+  useEffect(() => {
+    setTotalBytes(inputImageHandler.total);
+  }, [inputImageHandler.total, setTotalBytes]);
 
   const onChangeHandler = ({ target }) => {
     setFile(target.files[0]);
